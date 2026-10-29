@@ -1,6 +1,6 @@
 CC      = gcc
-CFLAGS  = -std=c17 -D_DEFAULT_SOURCE -Wall -Wextra -O2
-LDLIBS  = -ludev
+CFLAGS  = -std=c17 -D_DEFAULT_SOURCE -Wall -Wextra -Wno-cast-function-type -O2 $(shell pkg-config --cflags gtk+-3.0)
+LDLIBS  = $(shell pkg-config --libs gtk+-3.0) -ludev
 SRC     = $(wildcard src/*.c)
 OBJ     = $(SRC:.c=.o)
 
